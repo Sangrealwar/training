@@ -7,12 +7,10 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
 
 import spittr.model.Spitter;
-import spittr.model.Spittle;
 import spittr.repository.IRepository.SpitterRepository;
 
 /**

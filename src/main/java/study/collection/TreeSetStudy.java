@@ -14,7 +14,7 @@ public class TreeSetStudy  implements  Comparable{
     }
 
     public static void main(String[] args) {
-        Comparator a = new Comparator() {
+        Comparator b = new Comparator() {
             public int compare(Object o1, Object o2) {
                 return 0;
             }

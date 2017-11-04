@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/view; charset=utf-8" />
+    <script type="text/javascript" src="/js/pub/jquery-2.1.1.js"></script>    <!--ie8以下版本可用 -->
+    <script type="text/javascript" src="/js/pub/jquery-2.1.1.min.js"></script>
+    <title>Title</title>
+    <script type="text/javascript">
+        function ajaxAskUsePost() {
+            var user =
+            {
+                "username": "jbauer",
+                "password": "24hours",
+                "firstName": "Jack",
+                "lastName": "Bauer"
+            };
+            $.ajax({
+                data:JSON.stringify(user),
+                type: "POST",
+                contentType:'application/json',
+                dataType: 'json',
+                url: "/ask",
+                error: function (data) {
+                    alert("出错了！！:" + data.msg);
+                },
+                success: function (data) {
+                    alert("success:" + data.msg);
+                    $("#result").html(data.msg);
+                }
+            })
+        }
+
+        function ajaxAskUseGet() {
+            var query = "/jbauer";
+            $.ajax({
+                type: "GET",
+                contentType:'application/json',
+                dataType: 'json',
+                url: "/ask"+ query,
+                error: function (data) {
+                    alert("出错了！！:" + data.msg);
+                },
+                success: function (data) {
+                    alert("success:" + data.msg);
+                    $("#result").html(data.msg);
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<input type="button" onclick="ajaxAskUsePost()" value="POST调用按钮" />fqwf
+<input type="button" onclick="ajaxAskUseGet()" value="GET调用按钮" />
+<span id="result"></span>
+</body>
+</html>

@@ -1,0 +1,22 @@
+线程特有存储模式：
+    多线程相关问题，归根结底是多线程共享变量所致，如果每个线程都单独持有自己的私有变量，则可以实现各个线程访问各自的变量，
+如果多个线程要使用某个类TSObject，而为了实现线程安全和避免锁相关问题，我们不希望这些线程共享TSObject实例，这样TSObject
+就称为线程特有对象，为了隐藏相关细节，引入线程特有代理TSObjectProxy。
+适用场景：
+    1.需要使用非线程安全对象，但又不希望引入锁。@see ThreadSpecificDateFormat
+    2.使用线程安全对象，但又希望避免其使用的锁的开销和相关问题。比如使用了Immutable Object就是线程安全对象。
+    3.隐式参数传递。@see  ImplicitParameterPassing BusinessService想调用Context的方法，可通过线程全局的共享对象ThreadLocal传递
+    4.特定于线程的单例模式。
+线程池环境下使用线程特有对象：
+    某工作者线程执行前一个任务时修改了特有对象，那执行下一个任务的时候就会“看到”之前的特有对象，产生紊乱
+内存泄漏：
+    @see MemoryLeakingServlet，因为Counter对象会持有该类对象的引用
+伪内存泄露：
+    @see MemoryPseduoLeakingServlet
+防止内存泄露
+    @see MemoryLeakPreventingServlet
+
+应用注意，一般使用java.lang.ThreadLocal，其中T即为线程特有对象，使用时注意
+    1.创建ThreadLocal的子类
+    2.覆盖父类的initialValue方法，用于定义初始线程特有对象实例
+    3.类型为ThreadLocal的变量通常用static final修饰。不同的线程采用同一个ThreadLocal实例，定义为类变量即可

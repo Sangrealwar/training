@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+.stlabel
+{
+	width: 100px;
+	}
+	.error{width: 100px;background: red;}
+
+	.top_blank
+	{
+		height:50px;
+	}

@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/view; charset=UTF-8"/>
+		<title>用户注册</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/pub/style.css}" />
+	</head>
+	<body>
+		<h1>用户注册</h1>
+		<a th:href="@{/logout}">退出</a>
+		<form method="POST" th:action="@{/spitter/register}" th:object="${spitter}" enctype="multipart/form-data">
+			<div class="errors" th:if="${#fields.hasErrors('*')}">
+				<ul>
+					<li th:each="err : ${#fields.errors('*')}" th:text="${err}">
+						输入错误
+					</li>
+				</ul>
+			</div>
+			<label th:class="${#fields.hasErrors('firstName')}? 'error':'stlabel'">
+				姓
+			</label>
+			:
+			<input type="text" th:field="*{firstName}"
+				th:class="${#fields.hasErrors('firstName')}? 'error'" />
+			<br />
+			<label th:class="${#fields.hasErrors('lastName')}? 'error':'stlabel'">
+				名
+			</label>
+			:
+			<input type="text" th:field="*{lastName}"
+				th:class="${#fields.hasErrors('lastName')}? 'error'" />
+			<br />
+			<label th:class="${#fields.hasErrors('username')}? 'error':'stlabel'">
+				用户名
+			</label>
+			:
+			<input type="text" th:field="*{username}"
+				th:class="${#fields.hasErrors('username')}? 'error'" />
+			<br />
+			<label th:class="${#fields.hasErrors('password')}? 'error':'stlabel'">
+				密码	
+			</label>
+			:
+			<input type="password" th:field="*{password}"
+				th:class="${#fields.hasErrors('password')}? 'error'" />
+			<br />
+			
+			<label>导入图片：</label>
+			<input type="file"
+					name="profilePicture"
+					accept="image/jpeg,image/png,image/gif" /> <br />
+			<input type="submit" value="注册" />
+		</form>
+	</body>
+</html>

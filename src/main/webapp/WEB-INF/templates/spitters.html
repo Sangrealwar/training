@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/view; charset=UTF-8" />
+<title>用户列表</title>
+</head>
+<body>
+用户列表
+<table>
+	<tr>
+		<td>用户名</td>
+		<td>姓</td>
+		<td>名</td>
+	</tr>
+	<tr th:each="spitter : ${spitters}">
+		<td th:text="${spitter.username}"></td>
+		<td th:text="${spitter.firstName}"></td>
+		<td th:text="${spitter.lastName}"></td>
+	</tr>
+</table>
+</body>
+</html>

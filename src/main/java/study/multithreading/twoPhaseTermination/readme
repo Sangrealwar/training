@@ -1,0 +1,8 @@
+
+
+
+1.线程停止标志，采用了TerminationToken,因为目标线程调用interrupt方法时，无法保证目标线程的isInterrupted为true
+可能在铺货InterruptedException后没有调用Thread.currentThread().interrupt()保留终端状态，同时toShutdown保证内存
+可见性，使用volatile修饰，当多个可停止线程消耗同一队列的数据时，可在AbstractTerminatableThread传入token实例
+
+2.隐藏可停止线程，AlarmMgr中私有变量用于引用可停止线程

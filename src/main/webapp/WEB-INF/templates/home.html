@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spittr</title>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{/css/pub/style.css}" />
+    <link rel="stylesheet" href="/css/pub/index.css"/>
+    <link rel="stylesheet" href="/css/pub/bootstrap.min.css"/>
+</head>
+<body>
+<div class="top_blank"></div>
+<div class="container">
+    <div class="row">
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+                <div class="panel-group" id="panel-902946">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-902946"
+                               href="#panel-element-1">博客管理</a>
+                        </div>
+                        <div id="panel-element-1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <a th:href="@{/spitter}">用户管理</a>
+                            </div>
+                            <div class="panel-body">
+                                <a th:href="@{/spittles}">博客管理</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-902946"
+                               href="#panel-element-2">扩展</a>
+                        </div>
+                        <div id="panel-element-2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <a href="#">微信</a>
+                            </div>
+                            <div class="panel-body">
+                                <a href="#">QQ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 column">主面板</div>
+        </div>
+    </div>
+</div>
+<!--<h1>首页</h1>-->
+<!--<Thread2 th:href="@{/spittles}">用户更新的信息</Thread2> |-->
+<!--<Thread2 th:href="@{/spitter/register}">注册</Thread2>-->
+</body>
+</html>
+
+<script src="/js/pub/jquery-1.11.1.min.js"></script>
+<script src="/js/pub/bootstrap.min.js"></script>

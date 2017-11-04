@@ -1,0 +1,35 @@
+<view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/view; charset=UTF-8" />
+<title>登陆页</title>
+<!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
+<link rel="stylesheet" href="/pub/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/pub/css/index.css"/>
+</head>
+<body>
+<div id="content">
+	<form name='f' th:action="@{/login}" method='POST'>
+		<table>
+			<tr>
+				<td>用户名：</td>
+				<td><input type='text' name='username' value='' /></td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input type='password' name='password'/></td>
+			</tr>
+			<tr>
+				<td><input id="remember_me" name ="remember_me" type="checkbox"/></td>
+				<td><label for="remember_me" >记住我</label></td>
+			</tr>
+			<tr>
+				<td><input name='submit' type='submit' value='登陆'/></td>
+				<td><a th:href="@{/logout}">退出</a></td>
+			</tr>
+		</table>
+	</form>
+</div>
+</body>
+</view>
+<script src="/pub/js/jquery-1.11.1.min.js"></script>

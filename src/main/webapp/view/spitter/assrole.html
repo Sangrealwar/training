@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>关联角色</title>
+    <script src="/pub/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="/pub/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/pub/css/index.css"/>
+    <link rel="stylesheet" href="/auth/user/css/style.css"/>
+    <script src="/pub/js/bootstrap.min.js"></script>
+    <script src="/pub/js/base.js"></script>
+    <script src="/auth/user/js/assrole.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li class="active">
+                    <a href="#">用户管理</a>
+                </li>
+                <li>
+                    <a href="#">博客管理</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+                <div class="panel-group" id="panel-902946">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-902946"
+                               href="#panel-element-1">权限管理</a>
+                        </div>
+                        <div id="panel-element-1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <a href="/auth/user/list.html">用户管理</a>
+                            </div>
+                            <div class="panel-body">
+                                <a href="/auth/role/list.html">角色管理</a>
+                            </div>
+                            <div class="panel-body">
+                                <a href="/auth/func/list.html">功能管理</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-902946"
+                               href="#panel-element-2">数据源管理</a>
+                        </div>
+                        <div id="panel-element-2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <a href="/rep/ds/datasouceconfigure.html">数据源配置</a>
+                            </div>
+                            <div class="panel-body">
+                                <a href="/rep/smts/semantic.html">语义配置</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 column">
+                <h4>用户名：<span id="userName"></span></h4>
+                <!--<font style="color:red;"> 用户：X X X </font>-->
+                <input type="button" class="btn btn-default" onclick="bindRoles();"
+                       data-toggle="modal" data-target="#myModa1" value="添加"  />
+                <input type="button" class="btn btn-default" onclick="removeMainTable();" value="移除" />
+                <!-- 为选中用户添加角色遮罩 -->
+                <div tabindex="-1" class="modal fade" id="myModa1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" aria-hidden="true" type="button" data-dismiss="modal">
+                                    ×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    选择角色
+                                </h4>
+                                <!--用户筛选框-->
+                                <div class="btn-group">
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                            data-toggle="dropdown">
+                                        条件一 <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">4</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="btn-group">
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                            data-toggle="dropdown">
+                                        条件二 <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">4</a></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn-success" type="button">
+                                    查询
+                                </button>
+
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <!--<th>序号</th>-->
+                                        <th>角色名</th>
+                                        <th>角色编码</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="noneBindRole">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <input class="btn btn-primary" type="button" onclick="addToMainTable();" value="确定" />
+                                <input class="btn btn-default" type="button" data-dismiss="modal" value="关闭" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--用户已选角色-->
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>序号</th>
+                        <th>角色名</th>
+                        <th>角色编号</th>
+                        <th>备注</th>
+                    </tr>
+                    </thead>
+                    <tbody id="bindRole">
+                    </tbody>
+                </table>
+                <input class="btn btn-success" type="button" onclick="save();" value="保存"/>
+                <input class="btn btn-default" type="button" value="取消" />
+            </>
+        </div>
+    </div>
+</div>
+</body>
+</html>

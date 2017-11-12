@@ -4,15 +4,14 @@
     <groupId>springmvc</groupId>
     <artifactId>spittr</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>spittr</name>
     <description>Spring的学习用例</description>
     <properties>
-        <!-- spring版本号，最新 -->
         <spring.version>4.3.3.RELEASE</spring.version>
         <!-- mybatis版本号 -->
         <mybatis.version>3.3.0</mybatis.version>
-        <hibernate.version>5.2.12.Final</hibernate.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
         <!-- log4j日志文件管理包版本 -->
         <slf4j.version>1.7.7</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
@@ -169,13 +168,11 @@
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -201,16 +198,24 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!--集成jms-->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-jms</artifactId>    <!--集成jms-->
+            <artifactId>spring-jms</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!--spring-data-jpa 这个和spring版本有依赖关系-->
+        <!--spring-mongodb 依赖spring 4.2.9.RELEASE-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>1.9.11.RELEASE</version>
+        </dependency>
+        <!--spring-data-jpa 依赖spring 4.2.5.RELEASE-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>1.11.8.RELEASE</version>
+            <!--<version>1.11.8.RELEASE</version>-->
+            <version>1.10.0.RELEASE</version>
         </dependency>
         <!-- hibernate4 spring支持包 -->
         <dependency>
@@ -222,13 +227,21 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
+            <!--<version>${hibernate.version}</version>-->
+            <version>4.3.11.Final</version>
         </dependency>
+        <!--意外发现一个entityManager的包-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.11.Final</version>
+        </dependency>
+
         <!-- java Valid接口实现-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.3.2.Final</version>
+            <version>4.2.0.Final</version>
         </dependency>
         <!-- mybatis-核心包 -->
         <dependency>
@@ -356,7 +369,7 @@
                         <port>80</port>
                         <host>192.168.107.1</host>
                     </httpConnector>
-                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
                 </configuration>
             </plugin>
         </plugins>

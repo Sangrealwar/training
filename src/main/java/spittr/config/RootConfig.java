@@ -13,8 +13,10 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import spittr.model.Spitter;
 import spittr.model.Spittle;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -145,11 +148,11 @@ public class RootConfig {
      * @return
      */
 //    @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-        HibernateTransactionManager mng = new HibernateTransactionManager();
-        mng.setSessionFactory(sessionFactory);
-        return mng;
-    }
+//    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+//        HibernateTransactionManager mng = new HibernateTransactionManager();
+//        mng.setSessionFactory(sessionFactory);
+//        return mng;
+//    }
 
     /**
      * Jpa的实现，这里采用Hibernate的实现
@@ -184,6 +187,28 @@ public class RootConfig {
         emfb.setPackagesToScan("spittr.model");   //配置持久化对象，这里用扫描的方式，否则需要persistence.xml
         return emfb;
     }
+
+    /**
+     * jpa的事务管理
+     * @param entityManagerFactory
+     * @return
+     */
+    @Bean
+    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory);
+        return transactionManager;
+    }
+
+
+    /**
+     * EntityManager的bean注入，这里开启了component-scan，不用注入
+     * @return
+     */
+//    @Bean
+//    public PersistenceAnnotationBeanPostProcessor persistenceAnnotationBeanPostProcessor(){
+//        return new PersistenceAnnotationBeanPostProcessor();
+//    }
 
     /**
      * 如果在应用服务器中（如tomcat容器的service.xml的context节点配置了resource）

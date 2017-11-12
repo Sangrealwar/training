@@ -3,7 +3,6 @@ package spittr.web;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,6 +13,7 @@ import spittr.config.RootConfig;
 import spittr.controller.SpitterController;
 import spittr.model.Spitter;
 import spittr.repository.IJpaRepository.JpaSpitterRepository;
+import spittr.repository.IMongo.OrderRepository;
 import spittr.repository.IRepository.BaseRepository;
 import spittr.repository.IRepository.SpitterRepository;
 
@@ -48,8 +48,9 @@ public class SpitterControllerTest {
         SpitterRepository repository = Mockito.mock(SpitterRepository.class);
         BaseRepository baseRepository = Mockito.mock(BaseRepository.class);
         JpaSpitterRepository jpaSpitterRepository = Mockito.mock(JpaSpitterRepository.class);
+        OrderRepository orderRepository = Mockito.mock(OrderRepository.class);
 
-        SpitterController controller = new SpitterController(repository, baseRepository, jpaSpitterRepository);
+        SpitterController controller = new SpitterController(repository, baseRepository, jpaSpitterRepository,orderRepository);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
         mockMvc.perform(MockMvcRequestBuilders.get("/spitter/register"))
@@ -69,10 +70,11 @@ public class SpitterControllerTest {
         SpitterRepository repository = Mockito.mock(SpitterRepository.class);
         BaseRepository baseRepository = Mockito.mock(BaseRepository.class);
         JpaSpitterRepository jpaSpitterRepository = Mockito.mock(JpaSpitterRepository.class);
+        OrderRepository orderRepository = Mockito.mock(OrderRepository.class);
 
         Mockito.when(repository.save(unsaved)).thenReturn(saved);
 
-        SpitterController controller = new SpitterController(repository, baseRepository,jpaSpitterRepository);
+        SpitterController controller = new SpitterController(repository, baseRepository,jpaSpitterRepository,orderRepository);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
         mockMvc.perform(

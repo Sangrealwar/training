@@ -92,23 +92,19 @@ public class CaseRunner {
         public void doRun() {
             for (int i = 0; i < requestsPerInterval; i++) {
 
-                executor.execute(new Runnable() {
+                executor.execute(() -> {
+                    MMSDeliverRequest request = new MMSDeliverRequest();
+                    request.setTransactionID(String.valueOf(counter.incrementAndGet()));
+                    request.setSenderAddress("13312345678");
+                    request.setTimeStamp(new Date());
+                    request.setExpiry((new Date().getTime() + 3600000) / 1000);
 
-                    @Override
-                    public void run() {
-                        MMSDeliverRequest request = new MMSDeliverRequest();
-                        request.setTransactionID(String.valueOf(counter.incrementAndGet()));
-                        request.setSenderAddress("13312345678");
-                        request.setTimeStamp(new Date());
-                        request.setExpiry((new Date().getTime() + 3600000) / 1000);
+                    request.setSubject("Hi");
+                    request.getRecipient().addTo("776");
+                    request.setAttachment(attachment);
 
-                        request.setSubject("Hi");
-                        request.getRecipient().addTo("776");
-                        request.setAttachment(attachment);
+                    persistence.store(request);
 
-                        persistence.store(request);
-
-                    }
                 });
 
             }

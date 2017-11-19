@@ -17,7 +17,7 @@
 
 子任务处理结果的收集：
 1.使用存储仓库进行收集仓库是一个Master和Slave都可以访问的数据结构，子任务将处理结果存入仓库，等待Master取
-2.使用Promise模式，是Slave参与者的subService返回Promise实例。
+2.使用Promise模式，使Slave参与者的subService返回Promise实例。
 
 Slave参与者的负载均衡和工作窃取：
 1.一般规模事先可知的话，根据CPU平摊即可

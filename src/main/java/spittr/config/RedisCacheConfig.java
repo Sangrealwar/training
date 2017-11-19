@@ -11,7 +11,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * 功能：配置集成缓存的配置文件，配置相关的Bean
+ * 功能：Redis缓存
  * 条件：
  * Created by wq on 2017/3/8.
  */

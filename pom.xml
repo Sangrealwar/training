@@ -74,7 +74,7 @@
             <artifactId>xbean-spring</artifactId>
             <version>3.16</version>
         </dependency>
-        <!--Redis内存缓存-->
+        <!--Redis，集中化内存缓存-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
@@ -84,6 +84,18 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.1.0</version>
+        </dependency>
+        <!--Ehcache，内存级缓存-->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <!--Ehcache集成Terracotta-->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache-clustered</artifactId>
+            <version>3.3.1</version>
         </dependency>
         <!-- Thymeleaf视图引擎 -->
         <dependency>

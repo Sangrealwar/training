@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
  * test for writelock
  */
 public class WriteLockTest extends ClientBase {
-    protected int sessionTimeout = 10 * 1000;
+    protected int sessionTimeout = 100 * 1000;
     protected String dir = "/" + getClass().getName();
     protected WriteLock[] nodes;
     protected CountDownLatch latch = new CountDownLatch(1);
@@ -40,7 +40,7 @@ public class WriteLockTest extends ClientBase {
 
     @Test
     public void testRun() throws Exception {
-        runTest(3);
+        runTest(5);
     }
 
     class LockCallback implements LockListener {

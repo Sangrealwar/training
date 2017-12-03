@@ -1,12 +1,10 @@
-package study.activemq.pub_sub;
+package study.mq.activemq.pub_sub;
 
 import javax.jms.*;
 import javax.jms.Destination;
-import javax.jms.Topic;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.broker.region.*;
 
 public class Pub {
     private static final int SENDNUM = 10;// 发送消息的数量

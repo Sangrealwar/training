@@ -1,4 +1,4 @@
-package study.activemq.pub_sub;
+package study.mq.activemq.pub_sub;
 
 import javax.jms.*;
 

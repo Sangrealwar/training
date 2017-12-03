@@ -1,4 +1,4 @@
-package study.activemq.p2p;
+package study.mq.activemq.p2p;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;

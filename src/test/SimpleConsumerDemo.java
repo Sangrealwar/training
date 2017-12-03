@@ -14,14 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package study.kafka.examples;
 
-import kafka.api.FetchRequest;
-import kafka.api.FetchRequestBuilder;
-import kafka.javaapi.FetchResponse;
-import kafka.javaapi.consumer.SimpleConsumer;
-import kafka.javaapi.message.ByteBufferMessageSet;
-import kafka.message.MessageAndOffset;
+import study.mq.examples.KafkaProperties;
+import study.mq.examples.Producer;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;

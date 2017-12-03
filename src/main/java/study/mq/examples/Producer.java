@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package study.kafka.examples;
+package study.mq.examples;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -49,7 +49,7 @@ public class Producer extends Thread {
                 producer.send(new ProducerRecord<>(topic,
                     messageNo,
                     messageStr), new DemoCallBack(startTime, messageNo, messageStr));
-            } else { // Send synchronously
+            } else { // Send synchronously 同步，用get去阻塞线程
                 try {
                     producer.send(new ProducerRecord<>(topic,
                         messageNo,

@@ -14,11 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package study.kafka.examples;
+package study.mq.examples;
 
 public class KafkaConsumerProducerDemo {
     public static void main(String[] args) {
         boolean isAsync = args.length == 0 || !args[0].trim().equalsIgnoreCase("sync");
+        isAsync = false;
         Producer producerThread = new Producer(KafkaProperties.TOPIC, isAsync);
         producerThread.start();
 

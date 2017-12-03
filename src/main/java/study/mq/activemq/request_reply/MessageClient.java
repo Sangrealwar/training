@@ -1,4 +1,4 @@
-package study.activemq.request_reply;
+package study.mq.activemq.request_reply;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 

@@ -1,4 +1,4 @@
-package study.activemq.request_reply;
+package study.mq.activemq.request_reply;
 
 import javax.jms.Connection;
 import javax.jms.DeliveryMode;

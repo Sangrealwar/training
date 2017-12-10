@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package study.mq.examples;
+package study.mq.kafka;
 
 public class KafkaProperties {
     public static final String KAFKA_SERVER_URL = "localhost";

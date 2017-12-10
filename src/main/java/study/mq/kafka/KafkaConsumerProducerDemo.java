@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package study.mq.examples;
+package study.mq.kafka;
 
 public class KafkaConsumerProducerDemo {
     public static void main(String[] args) {

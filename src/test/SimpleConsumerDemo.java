@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import study.mq.examples.KafkaProperties;
-import study.mq.examples.Producer;
+import study.mq.kafka.examples.KafkaProperties;
+import study.mq.kafka.examples.Producer;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;

@@ -1,4 +1,4 @@
-package study.designPattem.Command;
+package study.designPattem.command;
 
 /**
  * 名称：烤肉师傅

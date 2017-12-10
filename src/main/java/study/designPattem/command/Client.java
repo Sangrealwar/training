@@ -1,6 +1,4 @@
-package study.designPattem.Command;
-
-import java.nio.file.Watchable;
+package study.designPattem.command;
 
 /**
  * 名称：

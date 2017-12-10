@@ -1,4 +1,4 @@
-package study.designPattem.Command;
+package study.designPattem.command;
 
 /**
  * 名称：命令的抽象，封装了命令的执行对象

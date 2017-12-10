@@ -1,4 +1,4 @@
-package study.designPattem.Command;
+package study.designPattem.command;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

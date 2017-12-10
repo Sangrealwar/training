@@ -1,4 +1,4 @@
-package study.designPattem.Command;
+package study.designPattem.command;
 
 /**
  * 名称：烤鸡翅的命令
